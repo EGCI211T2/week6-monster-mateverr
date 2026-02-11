@@ -2,7 +2,8 @@
 #define monster_h
 using namespace std;
 
-class monster{
+class monster
+{
 private:
 	string name;
 	int hp,potion;
@@ -16,7 +17,8 @@ public:
 	void display(); //finish display func
 };
 
-monster::display() {
+void monster::display() 
+{
 	cout << "Name: " << endl;
 
 }
