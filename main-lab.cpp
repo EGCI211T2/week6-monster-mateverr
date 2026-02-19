@@ -2,8 +2,17 @@
 using namespace std;
 
 #include "monster.h"
+#include "thanos.h"
 
 int main(int argc, char* argv[]) {
+  Thanos T; // Create constructor of Thanos
+
+  T++; // add stones to thanos
+  
+  int n;
+  cout << "How many monster? ";
+  cin >> n; // Create n monster.
+
   //1. Your monster
   monster YOU(argv[1],atoi(argv[2]),atoi(argv[3]);
 
