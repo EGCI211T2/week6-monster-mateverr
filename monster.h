@@ -34,40 +34,54 @@ public:
 	~monster(); // Destructure
 
 	void display(); // declare
+	void reset_hp() {
+		hp = 0;
+		cout << name << " dies.\n";
+	}
 	bool operator>(monster &x);
 	void operator+=(int); // Binary
 	void operator+=(monster &x); // Binary
 	void operator--(); // Unary Operator
+
+	void get_name();
+	
 };
 
 monster::monster(string n, int h, int p) 
 // monster::monster(std::string n, int h, int p) 
 {	
-	cout << "What is your name?";
+	cout << "What is your name? ";
 	cin >> n;
 	name = n;
 	srand(time(0)); //Change seed in machine time, so will get random num most of the time
 	hp = rand()%MAX_HP;
 	potion = rand()%MAX_POTION;
 
+	display();
+
 	// Rand function mod with max value
 }
 
-void monster:attack(monster &x)
+void monster::get_name()
 {
-	if (hp>x.hp) {
-		x.hp > 10; x.hp-=10; x.hp = 0;
-		hp--;
-	}
-	else {
-		// in case not enough hp
-		x.hp -=2;
-		if (hp>1) hp--; else hp=0;
-	}
-	display();
 	cout << name;
-	cout << " attacks " << endl;
-	x.display();
+}
+
+void monster::attack(monster &x)
+{
+	cout << name << " fights " << x.name << endl;
+	if ((hp * potion) > (x.hp * x.potion)) {
+        cout << name << " wins!\n";
+        
+	}
+	else if ((x.potion* x.hp) > (hp * potion)) {
+        cout << x.name << " wins!\n";
+        
+	}
+    else
+    {
+        cout << "It's a draw!\n";
+    }
 }
 
 bool monster::operator>(monster &x)
